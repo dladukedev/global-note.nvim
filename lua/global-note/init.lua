@@ -15,7 +15,7 @@ local M = {
       local window_width = vim.api.nvim_list_uis()[1].width
       return {
         relative = "editor",
-        border = "single",
+        border = (vim.fn.exists("+winborder") == 1 and vim.o.winborder ~= "") and vim.o.winborder or "single",
         title = "Note",
         title_pos = "center",
         width = math.floor(0.7 * window_width),
